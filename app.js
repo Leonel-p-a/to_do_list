@@ -32,10 +32,9 @@ document.getElementById('form-tarefa').addEventListener('submit', (event) => {
 
 // Função para adicionar nova tarefa
 function adicionarTarefa() {
-    console.log('Função adicionarTarefa chamada'); // Debug
     const inputTarefa = document.getElementById('input-tarefa');
     const texto = inputTarefa.value.trim();
-    
+
     if (!texto) {
         mensagemErro.textContent = 'Por favor, insira uma tarefa válida.';
         return;
@@ -58,7 +57,7 @@ function adicionarTarefa() {
     // Adiciona ao DOM e salva
     adicionarTarefaAoDOM(tarefa);
     salvarTarefas();
-    
+
     // Limpa o formulário
     inputTarefa.value = '';
     mensagemErro.textContent = '';
@@ -76,11 +75,6 @@ function adicionarTarefaAoDOM(tarefa) {
     const containerId = statusParaContainer[tarefa.status];
     const container = document.getElementById(containerId);
 
-    if (!container) {
-        console.error(`Container não encontrado para o status: ${tarefa.status}`);
-        return;
-    }
-
     const divTarefa = document.createElement('div');
     divTarefa.className = 'tarefa-adicionada';
     divTarefa.dataset.id = tarefa.id;
@@ -88,7 +82,7 @@ function adicionarTarefaAoDOM(tarefa) {
     const btnLixeira = document.createElement('i');
     btnLixeira.className = 'fa-solid fa-trash';
     btnLixeira.style.cursor = 'pointer';
-    btnLixeira.addEventListener('click', function() {
+    btnLixeira.addEventListener('click', function () {
         this.closest('.tarefa-adicionada').remove();
         salvarTarefas();
         atualizarMensagensTarefas();
@@ -119,15 +113,15 @@ function salvarTarefas() {
 function extrairTarefasDoContainer(containerId) {
     const container = document.getElementById(containerId);
     if (!container || container.children.length === 0) return []; // Adicione esta linha
-    
+
     return Array.from(container.children).map(div => {
         return {
             id: div.dataset.id,
             texto: div.querySelector('p').textContent,
             importancia: div.className.includes('importancia-alto') ? 'alto' :
-                         div.className.includes('importancia-medio') ? 'medio' : 'baixo',
+                div.className.includes('importancia-medio') ? 'medio' : 'baixo',
             status: containerId.includes('concluidas') ? 'concluida' :
-                    containerId.includes('andamento') ? 'em-andamento' : 'pendente'
+                containerId.includes('andamento') ? 'em-andamento' : 'pendente'
         };
     });
 }
@@ -169,8 +163,8 @@ function atualizarMensagensTarefas() {
 
     const textoPrincipal = document.getElementById('texto-tarefas-cadastradas');
     const totalTarefas = document.querySelectorAll('.tarefa-adicionada').length;
-    textoPrincipal.textContent = totalTarefas ? 
-        `Você tem ${totalTarefas} tarefa(s) cadastrada(s).` : 
+    textoPrincipal.textContent = totalTarefas ?
+        `Você tem ${totalTarefas} tarefa(s) cadastrada(s).` :
         'Você ainda não tem tarefas cadastradas.';
 }
 
