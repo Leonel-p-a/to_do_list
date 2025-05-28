@@ -122,7 +122,7 @@ function salvarTarefas() {
 // Extrai tarefas de um container
 function extrairTarefasDoContainer(containerId) {
     const container = document.getElementById(containerId);
-    if (!container || container.children.length === 0) return []; // Adicione esta linha
+    if (!container || container.children.length === 0) return [];
 
     return Array.from(container.children).map(div => {
         return {
