@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Sua Lista de Tarefas pessoal</h1>
+    </header>
+
+    <main>
+        <div id="modal-criar-tarefa" class="modal-criar-tarefa">
+            <section id="criar-tarefa">
+                <i class="fa-solid fa-xmark" id="btn-fechar-modal"></i>
+                <h2>Criar Tarefa</h2>
+                <form id="form-tarefa">
+                    <label for="input-tarefa">Tarefa:</label>
+                    <textarea id="input-tarefa" name="tarefa"></textarea>
+                    <div class="opcoes-importancia-tarefa">
+                        <p>Nível de importância da tarefa:</p>
+                        <div>
+                            <label for="nivel-importancia-baixo">Baixo</label>
+                            <input type="radio" name="nivel-importancia" id="nivel-importancia-baixo" value="baixo" checked>
+                        </div>
+                        <div>
+                            <label for="nivel-importancia-medio">Médio</label>
+                            <input type="radio" name="nivel-importancia" id="nivel-importancia-medio" value="medio">
+                        </div>
+                        <div>
+                            <label for="nivel-importancia-alto">Alto</label>
+                            <input type="radio" name="nivel-importancia" id="nivel-importancia-alto" value="alto">
+                        </div>
+                    </div>
+                    <div class="opcoes-andamento-tarefa">
+                        <p>Andamento da tarefa:</p>
+                        <div>
+                            <label for="andamento-tarefa-pendente">Pendente</label>
+                            <input type="radio" name="andamento-tarefa" id="andamento-tarefa-pendente" value="pendente" checked>
+                        </div>
+                        <div>
+                            <label for="andamento-tarefa-em-andamento">Em andamento</label>
+                            <input type="radio" name="andamento-tarefa" id="andamento-tarefa-em-andamento" value="em-andamento">
+                        </div>
+                        <div>
+                            <label for="andamento-tarefa-concluida">Concluída</label>
+                            <input type="radio" name="andamento-tarefa" id="andamento-tarefa-concluida" value="concluida">
+                        </div>
+                    </div>
+                    <button type="submit" id="btn-adicionar-tarefa">Adicionar</button>
+
+                    <p id="mensagem-erro"></p>
+                </form>
+            </section>
+        </div>
+
+        <section id="lista-tarefas">
+            <h2>Lista de Tarefas</h2>
+            <div id="lista-tarefas-container">
+                <p id="texto-tarefas-cadastradas">Você ainda não tem tarefas cadastradas.</p>
+                <p>Clique no botão "Criar Tarefa" para adicionar uma nova tarefa.</p>
+                <button id="btn-criar-tarefa">Criar Tarefa</button>
+
+                <div id="tarefas-cadastradas">
+                    <h3>Tarefas Cadastradas</h3>
+                    <div class="tarefas-cadastradas-container">
+                        <div id="lista-tarefas-concluidas" class="tarefas-incluidas">
+                            <h4>Tarefas Concluídas</h4>
+                            <p>Você ainda não tem tarefas concluídas.</p>
+                            <div id="tarefas-concluidas-container" class="tarefas-container">
+
+                                <!-- As tarefas em andamento serão adicionadas aqui dinamicamente -->
+                                 
+                                <!-- <div class="tarefa-adicionada">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <p id="texto-tarefa"></p>
+                                </div> -->
+                            </div>
+                            <button id="btn-excluir-tarefas-concluidas" class="btn-excluir">Excluir Tarefas Concluídas</button>
+                        </div>
+                        <div id="lista-tarefas-pendentes" class="tarefas-incluidas">
+                            <h4>Tarefas Pendentes</h4>
+                            <p>Você ainda não tem tarefas pendentes.</p>
+                            <div id="tarefas-pendentes-container" class="tarefas-container">
+                                
+                                <!-- As tarefas em andamento serão adicionadas aqui dinamicamente -->
+                                 
+                                <!-- <div class="tarefa-adicionada">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <p id="texto-tarefa"></p>
+                                </div> -->
+                            </div>
+                            <button id="btn-excluir-tarefas-pendentes" class="btn-excluir">Excluir Tarefas Pendentes</button>
+                        </div>
+                        <div id="lista-tarefas-em-andamento" class="tarefas-incluidas">
+                            <h4>Tarefas em Andamento</h4>
+                            <p>Você ainda não tem tarefas em andamento.</p>
+                            <div id="tarefas-em-andamento-container" class="tarefas-container">
+                                <!-- As tarefas em andamento serão adicionadas aqui dinamicamente -->
+                                 
+                                <!-- <div class="tarefa-adicionada">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <p id="texto-tarefa"></p>
+                                </div> -->
+                            </div>
+                            <button id="btn-excluir-tarefas-em-andamento" class="btn-excluir">Excluir Tarefas em Andamento</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

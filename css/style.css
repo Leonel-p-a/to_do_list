@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-family: "WDXL Lubrifont TC", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: #252525;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.modal-criar-tarefa {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    display: none;
+}
+
+#criar-tarefa {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#criar-tarefa h2 {
+    margin-bottom: 20px;
+}
+
+#criar-tarefa textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-family: inherit;
+}
+
+.opcoes-importancia-tarefa p {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.opcoes-andamento-tarefa {
+    padding-bottom: 25px;
+}
+
+.opcoes-importancia-tarefa div {
+    padding-bottom: 15px;
+}
+
+.opcoes-andamento-tarefa p {
+    padding: 15px 0;
+    font-weight: bold;
+}
+
+.opcoes-andamento-tarefa div {
+    padding-bottom: 15px;
+}
+
+#btn-adicionar-tarefa {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#btn-adicionar-tarefa:hover {
+    background-color: #337837;
+}
+
+#mensagem-erro {
+    color: #cc1414;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+section#lista-tarefas {
+    width: 100%;
+    max-width: 1500px;
+    text-align: center;
+    padding: 20px;
+}
+
+section#lista-tarefas h2 {
+    padding-bottom: 15px;
+}
+
+section#lista-tarefas p {
+    padding-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+#btn-criar-tarefa {
+    background-color: #717171;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#btn-criar-tarefa:hover {
+    background-color: #5a5a5a;
+}
+
+section div#tarefas-cadastradas {
+    display: flex;
+    flex-direction: column;
+}
+
+section div#tarefas-cadastradas h3 {
+    padding: 15px 0;
+}
+
+.tarefas-incluidas {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.tarefas-incluidas h4 {
+    padding-bottom: 10px;
+}
+
+.tarefas-incluidas p {
+    margin-bottom: 15px;
+}
+
+.tarefas-container {
+    display: flex;
+    overflow-x: auto; /* Permite rolar horizontalmente se tiver muitas tarefas */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.tarefa-adicionada {
+    padding: 25px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    flex: 0 0 auto; /* Impede que os itens encolham */
+    width: 300px; /* Largura fixa para cada item */
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fbfbfb;
+}
+
+.tarefa-adicionada p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+    width: 100%;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+i {
+    color: #717171;
+    align-self: flex-end;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+i:hover {
+    color: #000000;
+}
+
+.btn-excluir {
+    background-color: #b53228;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn-excluir:hover {
+    background-color: #f92222;
+}
+
+.tarefa-adicionada.importancia-baixo {
+    border-left: 5px solid #4CAF50;
+}
+
+.tarefa-adicionada.importancia-medio {
+    border-left: 5px solid #FFC107;
+}
+
+.tarefa-adicionada.importancia-alto {
+    border-left: 5px solid #F44336;
+}
+
+
+@media screen and (min-width: 992px) {
+
+    section div#tarefas-cadastradas .tarefas-cadastradas-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 1500px;
+        gap: 50px;
+    }
+
+    .tarefas-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+    }
+    
+}
