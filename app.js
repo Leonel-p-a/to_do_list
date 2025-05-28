@@ -46,9 +46,18 @@ function adicionarTarefa() {
     // Obtém o nível de importância
     const importancia = document.querySelector('input[name="nivel-importancia"]:checked').value;
 
+    const data = new Date();
+    const diaHoraFormatada = data.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+
     // Cria o objeto da tarefa
     const tarefa = {
-        id: Date.now().toString(),
+        id: diaHoraFormatada,
         texto,
         status,
         importancia
@@ -89,7 +98,8 @@ function adicionarTarefaAoDOM(tarefa) {
     });
 
     const textoTarefa = document.createElement('p');
-    textoTarefa.textContent = tarefa.texto;
+    // textoTarefa.textContent = tarefa.texto;
+    textoTarefa.textContent = tarefa.id + ' - ' + tarefa.texto; // Adiciona o ID antes do texto
 
     divTarefa.classList.add(`importancia-${tarefa.importancia}`);
     divTarefa.appendChild(btnLixeira);
