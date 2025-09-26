@@ -36,12 +36,12 @@ btnToggleTheme.addEventListener('click', () => {
 
 // Evento para abrir o modal
 btnCriarTarefa.addEventListener('click', () => {
-    modalCriarTarefa.style.display = 'flex';
+    modalCriarTarefa.classList.add('ativo');
 });
 
 // Evento para fechar o modal
 btnFecharModal.addEventListener('click', () => {
-    modalCriarTarefa.style.display = 'none';
+    modalCriarTarefa.classList.remove('ativo');
     mensagemErro.textContent = '';
     document.getElementById('input-tarefa').value = '';
 });
