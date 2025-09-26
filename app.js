@@ -8,9 +8,31 @@ const btnExcluirTarefasEmAndamento = document.getElementById('btn-excluir-tarefa
 const mensagemErro = document.getElementById('mensagem-erro');
 const btnFecharModal = document.getElementById('btn-fechar-modal');
 const modalCriarTarefa = document.getElementById('modal-criar-tarefa');
+const btnToggleTheme = document.getElementById('btn-toggle-theme');
+const body = document.body;
 
 // Carrega tarefas quando a página é aberta
 document.addEventListener('DOMContentLoaded', carregarTarefas);
+
+// Tema claro/escuro
+
+// Carrega preferência salva
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark');
+    btnToggleTheme.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}
+
+// Alterna tema ao clicar
+btnToggleTheme.addEventListener('click', () => {
+    body.classList.toggle('dark');
+    const theme = body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+
+    // Ícone muda conforme o tema
+    btnToggleTheme.innerHTML = body.classList.contains('dark')
+        ? '<i class="fa-solid fa-sun"></i>'
+        : '<i class="fa-solid fa-moon"></i>';
+});
 
 // Evento para abrir o modal
 btnCriarTarefa.addEventListener('click', () => {
